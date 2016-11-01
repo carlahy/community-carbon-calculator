@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Community Carbon Calculator</title>
+    <!--<script src="index.js"></script>-->
+
+    <!--<script src="Tangle.js"></script>-->
+    <!--<link rel="stylesheet" href="TangleKit/TangleKit.css" type="text/css">-->
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,800|PT+Sans:400,700" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.js"></script>
+
+    <script src="app.js"></script>
+    <!--<script type="text/javascript" src="TangleKit/mootools.js"></script>-->
+    <!--<script type="text/javascript" src="TangleKit/sprintf.js"></script>-->
+    <!--<script type="text/javascript" src="TangleKit/BVTouchable.js"></script>-->
+    <!--<script type="text/javascript" src="TangleKit/TangleKit.js"></script>-->
+</head>
+<body>
+
+    <h1>UCL Engineering Cafe</h1><br>
+
+    <div class="spreadsheet">
+        <iframe class="spreadsheet" src="https://docs.google.com/spreadsheets/d/1E9Rrh-ocXE18_huXiazzTnvBur6Gr7C62S7uDrcdRVY/edit?usp=sharing"></iframe>
+    </div>
+
+    <div id="carbon-calculator-coffee" ng-app="myApp" ng-controller="myCtrl">
+
+        <h2>Outcomes</h2>
+        <ul>
+            <li>Cost/{{interval.selected}} = <span >{{numberCoffees * cupCost * reuseRatio/100 | number:3}}</span> £</li>
+            <li>CO2/{{interval.selected}} = {{numberCoffees * cupCO2 * reuseRatio/100 | number:3}} kg CO2</li>
+            <li>Waste/{{interval.selected}} = {{numberCoffees * cupWaste * reuseRatio/100 | number:3}} m3 in landfill</li>
+        </ul>
+
+        <h2>Equations</h2>
+        <ul>
+            <li>Cost/{{interval.selected}} = numberCoffees * cupCost </li>
+            <li>CO2/{{interval.selected}} = numberCoffees * cupCO2</li>
+            <li>Waste/{{interval.selected}} = numberCoffees * cupWaste</li>
+        </ul>
+
+        <h2>Data</h2>
+        <p>Fixed</p>
+        <ul>
+            <li>Cup cost = {{cupCost}} £</li>
+            <li>Cup CO2 =  {{cupCO2}} kg CO2</li>
+            <li>Cup waste = {{cupWaste}} m3</li>
+        </ul>
+        <p>Flexible</p>
+        <ul>
+            <li>Reuse ratio = <input type="range" min="0" max="100" ng-model="reuseRatio">%</li>
+            <li>Number of coffees = <input type="number" ng-model="numberCoffees"></li>
+            <li>Time interval =
+                <select ng-model="interval.selected" ng-options="value for value in interval.values">
+                    <!--<option ng-options="value in interval.values" ng-value="{{value}}">{{value}}</option>-->
+                </select>
+            </li>
+        </ul>
+
+
+        <h2>Edit</h2>
+        <p>You can edit the model above to explore alternative scenarios. You can change: the time interval, the
+        ratio of reusable cups used, the number of hot drinks sold</p>
+
+</body>
+</html>

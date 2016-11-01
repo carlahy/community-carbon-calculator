@@ -1,0 +1,44 @@
+
+body {
+    font-family: PT Sans;
+    font-size: 18px;
+    line-height: 1.5em;
+}
+
+h1 {
+    text-align: center;
+    font-weight: bold;
+}
+
+.spreadsheet {
+    width:90%;
+    height:500px;
+    margin-left:5%;
+}
+
+#carbon-calculator-coffee {
+    max-width:60%;
+    margin: 5em 20% 5em 20%;
+}
+
+.highlight {
+    color: #009926;
+    font-weight: bold;
+}
+
+#sources {
+    color: gray;
+}
+
+.smaller-box {
+    margin: 2em 0 2em 3em;
+
+}
+
+sup {
+    color: gray;
+    font-size: 0.5em;
+}
+
+
+
